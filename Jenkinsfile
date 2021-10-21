@@ -35,7 +35,7 @@ pipeline {
 
           }
           when{
-            branch 'master'
+            branch 'parallel1'
           }
           steps {
             sh 'mvn package -DskipTests'
@@ -46,7 +46,7 @@ pipeline {
         stage('DockerBnP') {
           agent any
           when {
-            branch 'master'
+            branch 'parallel1'
           }
           steps {
             script {
