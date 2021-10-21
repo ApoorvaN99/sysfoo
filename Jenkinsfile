@@ -22,9 +22,7 @@ pipeline {
       }
       steps {
         sh 'mvn clean test'
-      }
-
-      script{
+        script{
         when {
           branch 'master'
         }
@@ -57,6 +55,9 @@ pipeline {
           }
         }
       }
+      }
+
+      
     }
   }
   tools {
