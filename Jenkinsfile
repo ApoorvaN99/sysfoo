@@ -25,7 +25,7 @@ pipeline {
       }
     }
 
-    stage('parallel_1') {
+    stage('Generate artifacts') {
       parallel {
         stage('package') {
           agent {
@@ -35,7 +35,7 @@ pipeline {
 
           }
           when{
-            branch 'parallel1'
+            branch 'master'
           }
           steps {
             sh 'mvn package -DskipTests'
@@ -46,7 +46,7 @@ pipeline {
         stage('DockerBnP') {
           agent any
           when {
-            branch 'parallel1'
+            branch 'master'
           }
           steps {
             script {
